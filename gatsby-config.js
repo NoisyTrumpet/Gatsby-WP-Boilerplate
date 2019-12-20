@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Noisy Trumpet GatsbyJS Wordpress Headless Starter`,
+    description: `Headless WordPress boilerplate for Noisy Trumpet Web Dev Team`,
+    author: `@NoisyTrumpet`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -25,6 +25,22 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        baseUrl: "myrealtynetwork.noisytrumpet.com",
+        protocol: "http",
+        hostingWPCOM: false,
+        useACF: true,
+        // It can help you debug specific API Endpoints problems.
+        verboseOutput: true,
+        // Search and Replace Urls across WordPress content.
+        searchAndReplaceContentUrls: {
+          sourceUrl: "http://myrealtynetwork.noisytrumpet.com",
+          replacementUrl: "https://myrealtynetwork.com",
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
